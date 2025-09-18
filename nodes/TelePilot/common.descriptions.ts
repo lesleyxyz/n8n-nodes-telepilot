@@ -216,6 +216,11 @@ export const operationGroup: INodeProperties = {
 			value: 'getSupergroupFullInfo',
 			action: 'Get supergroup full information',
 		},
+		{
+			name: 'Get Supergroup Members',
+			value: 'getSupergroupMembers',
+			action: 'Get supergroup members',
+		},
 	],
 default: 'getSupergroup',
 	noDataExpression: true,
@@ -261,6 +266,11 @@ export const operationChat: INodeProperties = {
 			name: 'Get Chat History',
 			value: 'getChatHistory',
 			action: 'Get chat history',
+		},
+		{
+			name: 'Search Chat Members',
+			value: 'searchChatMembers',
+			action: 'Search chat members',
 		},
 		{
 			name: 'Get Chats',
@@ -465,7 +475,8 @@ export const variable_chat_id: INodeProperties = {
 			'addChatMembers',
 			'sendChatAction',
 			'getMessageLink',
-			'viewMessages'
+			'viewMessages',
+			'searchChatMembers'
 		],
 			resource: ['chat', 'message'],
 	},
@@ -537,6 +548,24 @@ default: '0',
 	description:
 	'Maximum number of messages to be returned; up to 100 messages can be retrieved at once',
 };
+
+export const variable_users_limit: INodeProperties = {
+	displayName: 'Limit',
+	name: 'limit',
+	type: 'string',
+	required: true,
+	displayOptions: {
+		show: {
+			operation: ['getSupergroupMembers', 'searchChatMembers'],
+			resource: ['group', 'chat'],
+		},
+	},
+	default: '0',
+	placeholder: '200',
+	description:
+		'The maximum number of users to be returned; up to 200.',
+};
+
 export const variable_message_ids: INodeProperties = {
 	displayName: 'Message IDs',
 		name: 'message_ids',
@@ -679,13 +708,13 @@ export const variable_query: INodeProperties = {
 	required: true,
 	displayOptions: {
 	show: {
-		operation: ['searchPublicChats'],
+		operation: ['searchPublicChats', 'searchChatMembers'],
 			resource: ['chat'],
 	},
 },
 default: '',
 	placeholder: 'Text',
-	description: 'Query used to search public chats by looking in their username and title',
+	description: 'Query used to search by looking in their username and title',
 };
 
 //Variables Files
@@ -756,7 +785,7 @@ export const variable_supergroup_id: INodeProperties = {
 	type: 'string',
 	displayOptions: {
 		show: {
-			operation: ['getSupergroup', 'getSupergroupFullInfo'],
+			operation: ['getSupergroup', 'getSupergroupFullInfo', 'getSupergroupMembers'],
 			resource: ['group'],
 		},
 	},
