@@ -35,12 +35,4 @@ export class TelePilotApi implements ICredentialType {
 			required: true,
 		},
 	];
-
-	test: ICredentialTestRequest = {
-		request: {
-			baseURL: 'http://ls.telepilot.co:4413',
-			url: '?key=empty',
-			method: 'POST',
-		},
-	};
 }
