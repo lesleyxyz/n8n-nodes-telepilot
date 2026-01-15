@@ -8,7 +8,7 @@ importers:
 
   .:
     dependencies:
-      '@telepilotco/tdl':
+      'tdl':
         specifier: ^7.4.1
         version: 7.4.1
       '@telepilotco/tdlib-binaries-prebuilt':
@@ -542,8 +542,8 @@ packages:
   '@tediousjs/connection-string@0.3.0':
     resolution: {integrity: sha512-d/keJiNKfpHo+GmSB8QcsAwBx8h+V1UbdozA5TD+eSLXprNY53JAYub47J9evsSKWDdNG5uVj0FiMozLKuzowQ==}
 
-  '@telepilotco/tdl@7.4.1':
-    resolution: {integrity: sha512-fH6dLyIGKQ7lPkT0bSGg+isjz5vb886BMIVqALq07dyvvNkii+fYTQ/0yIBpfru+qzsWmfvQF7aoWhXSRFH3BA==}
+  'tdl@7.4.1':
+    resolution: {integrity: sha512-7EkVpgAndBAd+jMeRR+FI3v/Y0iy0bmcTDNACqp9Dtg+4AWdLb7fdjbMCEOuL2+ezjoslInXKx9SNWJ1vBT11A==}
 
   '@telepilotco/tdlib-binaries-prebuilt@1.8.14':
     resolution: {integrity: sha512-zDqfist7Y4q5mRBhimo1TKHWqtNt5gc6fk/Mw2iJL12LFDFnu00MdH47ZDUi61Dqd0JuJn3kr9zVRA9pl6LHUQ==}
@@ -5052,7 +5052,7 @@ snapshots:
 
   '@tediousjs/connection-string@0.3.0': {}
 
-  '@telepilotco/tdl@7.4.1':
+  'tdl@7.4.1':
     dependencies:
       debug: 4.3.4
       eventemitter3: 4.0.7

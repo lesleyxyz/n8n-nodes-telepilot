@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { Service } from 'typedi';
 import {IDataObject} from "n8n-workflow";
-const { Client } = require('@telepilotco/tdl');
-const tdl = require('@telepilotco/tdl');
+const { Client } = require('tdl');
+const tdl = require('tdl');
 // const childProcess = require('child_process');
 
 const debug = require('debug')('telepilot-cm')
@@ -13,7 +13,7 @@ var pjson = require('../../package.json');
 const nodeVersion = pjson.version;
 
 const binaryVersion = pjson.dependencies["@telepilotco/tdlib-binaries-prebuilt"].replace("^", "");
-const addonVersion = pjson.dependencies["@telepilotco/tdl"].replace("^", "");
+const addonVersion = pjson.dependencies["tdl"].replace("^", "");
 
 export enum TelepilotAuthState {
 	NO_CONNECTION = "NO_CONNECTION",
