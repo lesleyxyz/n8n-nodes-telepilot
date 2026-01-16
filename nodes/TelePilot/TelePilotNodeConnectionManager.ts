@@ -231,7 +231,7 @@ export class TelePilotNodeConnectionManager {
 		let _lib_prebuilt_package = "tdlib-binaries-prebuilt/prebuilds/";
 
 		let libFile = "";
-		const libFolder = __dirname + "/../../../../" + _lib_prebuilt_package;
+		const libFolder = __dirname + "/../../../../../@telepilotco/" + _lib_prebuilt_package;
 
 		if (process.arch === "x64") {
 			switch (process.platform) {
