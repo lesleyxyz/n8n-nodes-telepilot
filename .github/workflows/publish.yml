@@ -102,6 +102,17 @@ jobs:
           
           RUN [ -f /home/node/.npmrc ] && cat /home/node/.npmrc || echo "No npmrc"
 
+          USER root
+          
+          RUN apt-get update && apt-get install -y \
+              python3 \
+              python3-dev \
+              make \
+              g++ \
+              && rm -rf /var/lib/apt/lists/*
+          
+          USER node
+
           RUN cd /home/node/.n8n/nodes && ls -laR && npm install lesleyxyz-n8n-nodes-telepilot-*.tgz
 
           RUN N8N_ENCRYPTION_KEY=${{ secrets.N8N_KEY }} n8n import:credentials -i /home/node/.n8n/nodes/node_modules/@lesleyxyz/n8n-nodes-telepilot/deploy/test-n8n-imports/credentials/credential-dummy.json
