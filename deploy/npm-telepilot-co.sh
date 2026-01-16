@@ -14,19 +14,19 @@ npm login
 
 
 GH_TOKEN="t.b.d."
-cd ~ && git clone https://$GH_TOKEN@github.com/lesleyxyz/tdlib-binaries-prebuilt
+cd ~ && git clone https://$GH_TOKEN@github.com/telepilotco/tdlib-binaries-prebuilt
 cd tdlib-binaries-prebuilt
 #npm run build
 npm publish
 cd ..
-cd ~ && git clone https://$GH_TOKEN@github.com/lesleyxyz/tdlib-addon-prebuilt
+cd ~ && git clone https://$GH_TOKEN@github.com/telepilotco/tdlib-addon-prebuilt
 cd tdlib-addon-prebuilt
 npm install babel
 # npm install --save-dev babel-cli ( on arm64 box???)
 npm run build
 npm publish
 cd ..
-git clone https://$GH_TOKEN@github.com/lesleyxyz/n8n-nodes-telepilot
+git clone https://$GH_TOKEN@github.com/telepilotco/n8n-nodes-telepilot
 cd n8n-nodes-telepilot
 #git checkout temp-node-gyp
 npm install #pnpm install
