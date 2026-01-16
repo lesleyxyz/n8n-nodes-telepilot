@@ -100,7 +100,7 @@ jobs:
           COPY lesleyxyz-n8n-nodes-telepilot-*.tgz /home/node/.n8n/nodes/
           RUN if [ -n "$NPM_REGISTRY" ]; then npm config set registry "$NPM_REGISTRY"; fi
           
-          RUN cat /home/node/.npmrc
+          RUN [ -f /home/node/.npmrc ] && cat /home/node/.npmrc || echo "No npmrc"
 
           RUN cd /home/node/.n8n/nodes && ls -laR && npm install telepilotco-n8n-nodes-telepilot-*.tgz
 
