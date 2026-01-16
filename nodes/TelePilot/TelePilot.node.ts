@@ -29,6 +29,7 @@ import {
 	variable_from_chat_id,
 	variable_from_message_id,
 	variable_limit,
+	variable_users_limit,
 	variable_is_channel,
 	variable_is_marked_as_unread,
 	variable_message_id,
@@ -111,6 +112,7 @@ export class TelePilot implements INodeType {
 			variable_is_marked_as_unread,
 			variable_from_message_id,
 			variable_limit,
+			variable_users_limit,
 			variable_message_ids,
 			variable_message_id,
 			variable_message_force_read,
@@ -494,6 +496,19 @@ export class TelePilot implements INodeType {
 						description,
 						location: null,
 						for_import: false,
+					});
+					returnData.push(result);
+				} else if (operation === 'searchChatMembers') {
+					const chat_id = this.getNodeParameter('chat_id', 0) as string;
+					const limit = this.getNodeParameter('limit', 0) as number;
+					const query = this.getNodeParameter('query', 0) as string;
+
+					const result = await client.invoke({
+						_: 'searchChatMembers',
+						chat_id,
+						query,
+						limit,
+						filter: null,
 					});
 					returnData.push(result);
 				} else if (operation === 'deleteChat') {
@@ -1003,6 +1018,19 @@ export class TelePilot implements INodeType {
 					result = await client.invoke({
 						_: 'getSupergroupFullInfo',
 						supergroup_id,
+					});
+					returnData.push(result);
+				} else if (operation === 'getSupergroupMembers') {
+					const supergroup_id = this.getNodeParameter('supergroup_id', 0) as string;
+					const offset = this.getNodeParameter('offset', 0) as number;
+					const limit = this.getNodeParameter('limit', 0) as number;
+
+					const result = await client.invoke({
+						_: 'getSupergroupMembers',
+						supergroup_id,
+						filter: null,
+						offset,
+						limit,
 					});
 					returnData.push(result);
 				}
