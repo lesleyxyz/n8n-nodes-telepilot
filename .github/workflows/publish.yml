@@ -193,6 +193,6 @@ jobs:
       - run: tree .
       - name: Publish
         if: true
-        run: npm publish lesleyxyz-n8n-nodes-telepilot-${{ needs.build.outputs.PACKAGE_VERSION }}.tgz
+        run: npm publish --access=public lesleyxyz-n8n-nodes-telepilot-${{ needs.build.outputs.PACKAGE_VERSION }}.tgz
         env:
           NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
