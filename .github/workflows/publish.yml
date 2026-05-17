@@ -23,7 +23,7 @@ jobs:
       PACKAGE_VERSION: ${{ steps.set_var.outputs.PACKAGE_VERSION }}
     strategy:
       matrix:
-        node-version: [20.15.1]
+        node-version: [22]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     env:
       NPM_REGISTRY: ${{ github.event.inputs.npm_registry || 'https://registry.npmjs.org' }}
