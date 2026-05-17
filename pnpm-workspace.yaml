@@ -1,0 +1,7 @@
+allowBuilds:
+  '@telepilotco/tdlib-binaries-prebuilt': true
+  cpu-features: true
+  es5-ext: true
+  eslint-plugin-n8n-nodes-base: true
+  ssh2: true
+  tdl: true
